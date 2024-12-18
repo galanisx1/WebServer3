@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Light Theme</title>
+<link href="../static/css/simpleGridTemplate.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- Main Container -->
+<div class="container"> 
+  <!-- Header -->
+  <header class="header">
+    <h4 class="logo">Astra Celestic Technologies</h4>
+  </header>
+	
+<!-- Nuevo Bloque: Ejemplo POST con JSON -->
+        	
+  <!-- Hero Section -->
+  <section class="intro">
+<div class="column">
+      <div> </div>
+
+    <img src="../static/images/profile2.png" alt="" class="profile"> </div>
+<div class="column">
+      <p>Astra Celestic Technologies es una empresa que brinda soluciones tecnológicas para las empresas que requieren ser más eficientes. </p>
+      <p>Nuestros equipos trabaja en buscar e implementar mediante software, hardware e inteligencia artificial las mejores opciones para adaptarse a sus necesidades.</p>
+    </div>
+</section>
+  <!-- Stats Gallery Section -->
+  <div class="gallery">
+    <div class="thumbnail"> <a href="#"><img src="../static/images/calendar1.png" alt="" width="2000" class="cards"/></a>
+      <h4>Calendario - Cotizador</h4>
+      <p class="tag">Costos por Actividades, Horarios&nbsp;</p>
+      <p class="text_column">Calcula el costo de tu cliente utilizando un calendario donde seleccionas los días y las actividades así como los horarios.</p>
+    </div>
+    <div class="thumbnail"> <a href="#"><img src="../static/images/logoquote1.png" alt="" width="2000" class="cards"/></a>
+      <h4>Logos - Cotizador</h4>
+      <p class="tag">Sube una Imagen y Obten el Precio&nbsp; &nbsp; &nbsp; &nbsp;</p>
+      <p class="text_column">Calcula el costo estimado de lo que costaría el servicio de realizar tu logo en el servicio que des, como bordados, impresión, etc.&nbsp;</p>
+    </div>
+    <div class="thumbnail"> <a href="#"><img src="../static/images/route1.png" alt="" width="2000" class="cards"/></a>
+      <h4>Ruteo Flotilla</h4>
+      <p class="tag">Crea las Rutas para Entregas.</p>
+      <p class="text_column">Si ya tienes tu lista de clientes en excel a los que les vas a entregar, el app te permite crear las rutas para esas entregas.</p>
+    </div>
+    <div class="thumbnail"> <a href="#">      <img src="../static/images/conexion1.png" alt="" width="2000" class="cards"/></a>
+      <h4>Probar Servidor</h4>
+      <p class="tag">
+        <label for="textfield2">Codigo a enviar:</label>
+        <input name="textfield2" type="text" id="textfield2">
+        <input type="button" name="button2" id="button2" value="Enviar">	
+		  <p id="responseOutputButton2"></p> 
+		<!-- Salida separada para el segundo botón -->
+	  <br>
+      <label id="resultLabel" for="textfield2"></label>
+	  <h3></h3>
+	  </p>
+	  
+      <p class="text_column">&nbsp;</p>
+    </div>
+  </div>
+  <div class="gallery">
+    <div class="thumbnail"> <a href="#"><img src="../static/images/tournament1.png" alt="" width="2000" class="cards"/></a>
+      <h4>Torneos - Planner&nbsp;</h4>
+      <p class="tag">Planea un Torneo</p>
+      <p class="text_column">La app te ayuda a planear y estructurar tu torneo o evento de competición dando varias opciones de formas de torneo..</p>
+    </div>
+    <div class="thumbnail"> <a href="#"><img src="../static/images/bkg_06.jpg" alt="" width="2000" class="cards"/></a>
+      <h4>TITLE</h4>
+      <p class="tag">HTML, CSS, JS, WordPress</p>
+      <p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="thumbnail"> <a href="#"><img src="../static/images/bkg_06.jpg" alt="" width="2000" class="cards"/></a>
+      <h4>TITLE</h4>
+      <p class="tag">HTML, CSS, JS, WordPress</p>
+      <p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="thumbnail"> <a href="#"><img src="../static/images/bkg_06.jpg" alt="" width="2000" class="cards"/></a>
+      <h4>TITLE</h4>
+      <p class="tag">HTML, CSS, JS, WordPress</p>
+      <p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+  </div>
+  <!-- Footer Section -->
+  <footer id="contact">
+    <p class="hero_header">&nbsp; PONERSE EN CONTACTO&nbsp;</p>
+    <div class="button">EMAIL </div>
+  </footer>
+  <!-- Copyrights Section -->
+  <div class="copyright">&copy;2024 - <strong>All rights reserved</strong></div>
+</div>
+<!-- Main Container Ends -->
+	
+	<script>
+// Aquí va el código JavaScript para manejar el POST con JSON
+document.getElementById("button2").addEventListener("click", function() {
+  const userInput = document.getElementById("textfield2").value;
+
+  // Crear el objeto JSON
+  const data = {
+    message: userInput
+  };
+
+  // Realizar la solicitud POST
+  fetch('https://tu-servidor.com/api', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Mostrar la respuesta del servidor en el <p> con id 'responseOutput'
+    document.getElementById("responseOutput").innerText = 'Respuesta del servidor: ' + data.response;
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    document.getElementById("responseOutput").innerText = 'Hubo un error al enviar los datos.';
+  });
+});
+</script>
+	
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
